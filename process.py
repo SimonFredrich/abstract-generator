@@ -4,18 +4,21 @@ this module processed the text and produces an abstract
 """
 from random import randint
 
+
 def sentencePicker(sentences):
     picked_sentences = []
     for item in range(0, len(sentences)):
-        if randint(0, 1):
+        if not randint(0, 2):
             picked_sentences.append(sentences[item])
     return picked_sentences
+
 
 def textSmelter(sentences):
     smelted_text = []
     for item in sentences:
         smelted_text.append(" ".join(item))
     return " ".join(smelted_text)
+
 
 def processText(text):
     # split the text into words
@@ -33,7 +36,7 @@ def processText(text):
     for index_i, item in enumerate(words_with_dot):
         if index_i != 0:
             if words_with_dot[index_i - 1] != 0:
-                sentences.append(words[words_with_dot[index_i-1]+1:item + 1])    
+                sentences.append(words[words_with_dot[index_i-1]+1:item + 1])
             else:
                 sentences.append(words[words_with_dot[index_i - 1]:item + 1])
 
