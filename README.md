@@ -4,7 +4,7 @@ A Python 3 library for generating summaries from any text.
 
 You input a text and the program will take care of the rest.
 
-*I don't take any responsibility for the result of the summary.*
+**Don't take the result of the summary seriously, because it's just a fun project.**
 
 Usage
 -----
