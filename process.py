@@ -1,6 +1,21 @@
+#!/usr/bin/env python3
 """
 this module processed the text and produces an abstract
 """
+from random import randint
+
+def sentencePicker(sentences):
+    picked_sentences = []
+    for item in range(0, len(sentences)):
+        if randint(0, 1):
+            picked_sentences.append(sentences[item])
+    return picked_sentences
+
+def textSmelter(sentences):
+    smelted_text = []
+    for item in sentences:
+        smelted_text.append(" ".join(item))
+    return " ".join(smelted_text)
 
 def processText(text):
     # split the text into words
@@ -8,10 +23,10 @@ def processText(text):
 
     # filter words with dot
     words_with_dot = [0]
-    for word in words:
+    for index_w, word in enumerate(words):
         for char in word:
             if char == ".":
-                words_with_dot.append(words.index(word))
+                words_with_dot.append(index_w)
 
     # seperate all sentences into an array
     sentences = []
@@ -22,7 +37,7 @@ def processText(text):
             else:
                 sentences.append(words[words_with_dot[index_i - 1]:item + 1])
 
-    # next join the sentences together
-    print(sentences)
+    sentences = sentencePicker(sentences)
+    text = textSmelter(sentences)
 
     return text
